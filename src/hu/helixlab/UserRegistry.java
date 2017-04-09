@@ -1,5 +1,7 @@
 package hu.helixlab;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.util.Scanner;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Scanner;
 public class UserRegistry {
 
     private User[] users;
+    private boolean bool = false;
 
     public UserRegistry() {
         this.users = new User[10];
@@ -85,10 +88,13 @@ public class UserRegistry {
                 users[i] = null;
                 System.out.println("User törölve!");
                 break;
-            } else if (users[i] == null){
-                System.out.println("Nincs ilyen User!");
-                break;
+            } else {
+             bool = true;
             }
         }
+        if (bool = true){
+            System.out.println("Nincs ilyen ID!");
+        }
     }
+
 }
