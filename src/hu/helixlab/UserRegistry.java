@@ -33,7 +33,7 @@ public class UserRegistry {
                     addNewUser();
                     break;
                 case 3:
-
+                    updateUser();
                     break;
                 case 4:
                     deleteUser();
@@ -84,17 +84,36 @@ public class UserRegistry {
         System.out.println("Adja meg a user ID-t: ");
         int id = scanner.nextInt();
         for (int i = 0; i < users.length; ++i) {
-         if (users[i] != null && users[i].getId() == id) {
+            if (users[i] != null && users[i].getId() == id) {
                 users[i] = null;
                 System.out.println("User törölve!");
                 break;
             } else {
-             bool = true;
+                bool = true;
             }
         }
-        if (bool = true){
+        if (bool = true) {
             System.out.println("Nincs ilyen ID!");
         }
     }
 
+    private void updateUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Kérek egy User ID-t: ");
+        int id = scanner.nextInt();
+        System.out.println("Kérek egy új User-t: ");
+        String name = scanner.next();
+        for (int i = 0; i < users.length; ++i) {
+            if (users[i] != null && users[i].getId() == id) {
+                users[i].setUsername(name);
+                users[i].setPassword(PasswordGenerator.generatePassword(8));
+                break;
+            } else {
+                bool = true;
+            }
+        }
+        if (bool == true) {
+            System.out.println("Nem találtam ilyen ID-ju Usert!");
+        }
+    }
 }
