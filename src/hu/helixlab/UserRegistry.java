@@ -22,7 +22,7 @@ public class UserRegistry {
         while (operation != 0) {
             printMenu();
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Adja meg a menüpontot(0-4): ");
+            System.out.println("Adja meg a menüpontot(0-5): ");
             operation = scanner.nextInt();
 
             switch (operation) {
@@ -37,6 +37,9 @@ public class UserRegistry {
                     break;
                 case 4:
                     deleteUser();
+                    break;
+                case 5:
+                    countUser();
                     break;
                 case 0:
                     System.out.println("bye");
@@ -55,6 +58,7 @@ public class UserRegistry {
         System.out.println("**Add new User(2)  **");
         System.out.println("**Update User(3)   **");
         System.out.println("**Delete User(4)   **");
+        System.out.println("**Count User(5)    **");
         System.out.println("**Exit(0)          **");
         System.out.println("*********************");
     }
@@ -115,5 +119,15 @@ public class UserRegistry {
         if (bool == true) {
             System.out.println("Nem találtam ilyen ID-ju Usert!");
         }
+    }
+
+    private void countUser() {
+        int users_number = 0;
+        for (int i = 0; i < users.length; ++i) {
+            if (users[i] != null) {
+                users_number++;
+            }
+        }
+        System.out.println("A userek száma: " + users_number);
     }
 }
