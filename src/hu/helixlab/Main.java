@@ -10,6 +10,8 @@ public class Main {
         ArrayTest arrayTest = new ArrayTest();
         arrayTest.initArray();
         arrayTest.getSecondHighest();
+        arrayTest.initMatrix();
+        arrayTest.searchNotNullRows();
 
     }
 }
