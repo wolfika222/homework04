@@ -121,13 +121,13 @@ public class UserRegistry {
         }
     }
 
-    private void countUser() {
+    private int countUser() {
         int users_number = 0;
         for (int i = 0; i < users.length; ++i) {
             if (users[i] != null) {
-                users_number++;
+                ++users_number;
             }
         }
-        System.out.println("A userek száma: " + users_number);
+        return users_number;
     }
 }
